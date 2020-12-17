@@ -1,4 +1,5 @@
 ﻿using System;
+using FileTools;
 
 namespace FileTools
 {
@@ -7,6 +8,9 @@ namespace FileTools
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            Test tester = new Test();
+            tester.title = "This is the title attribute";
         }
     }
 }
