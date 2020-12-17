@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace FileTools
 {
-    class Test
+    public class FileTools
     {
-        public string title;
+        
     }
 }

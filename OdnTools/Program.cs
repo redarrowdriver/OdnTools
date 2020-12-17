@@ -6,7 +6,8 @@ namespace OdnTools
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("ODN Consulting, LLC Tools");
+            Console.WriteLine("Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
         }
     }
 }
