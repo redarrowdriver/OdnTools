@@ -1,4 +1,5 @@
 ﻿using System;
+using FileTools;
 
 namespace OdnTools
 {
@@ -8,6 +9,13 @@ namespace OdnTools
         {
             Console.WriteLine("ODN Consulting, LLC Tools");
             Console.WriteLine("Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            Console.WriteLine("Enter a file path: ");
+            string path = Console.ReadLine();
+
+            FileToolWorker fileChecker = new FileToolWorker();
+
+            fileChecker.emptyDirectories(path);
+
         }
     }
 }
