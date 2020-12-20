@@ -16,6 +16,8 @@ namespace OdnTools
 
             fileChecker.emptyDirectories(path);
 
+            fileChecker.creationDates(@"F:\temp\pictures\catch\SnapChat-2063693639.jpg");
+
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using MetadataExtractor;
 
 namespace FileTools
 {
@@ -17,15 +18,15 @@ namespace FileTools
             //this should give us our empty directories
             //need to check for files in each dir
 
-            string[] dirs = Directory.GetDirectories(dirToCheck, "*", SearchOption.AllDirectories);
-            foreach (string dir in dirs)
-            {
-                int fileCount = Directory.GetFiles(dir, "*", SearchOption.AllDirectories).Length;
-                if (fileCount == 0)
-                {
-                    Console.WriteLine(dir);
-                }
-            }
+            //string[] dirs = Directory.GetDirectories(dirToCheck, "*", SearchOption.AllDirectories);
+            //foreach (string dir in dirs)
+            //{
+            //    int fileCount = Directory.GetFiles(dir, "*", SearchOption.AllDirectories).Length;
+            //    if (fileCount == 0)
+            //    {
+            //        Console.WriteLine(dir);
+            //    }
+            //}
 
             //int fileCount = Directory.GetFiles(dirToCheck, "*", SearchOption.AllDirectories).Length;
             //Console.WriteLine(fileCount.ToString());
@@ -50,6 +51,22 @@ namespace FileTools
             //{
             //    Console.WriteLine(info.FullName.ToString());
             //}
+        }
+
+        public void creationDates(string dirToCheck)
+        {
+            //var image = ImageMetadataReader.ReadMetadata(dirToCheck);
+            //foreach (var directory in image)
+            //{
+            //    foreach (var tag in directory.Tags)
+            //    {
+            //        Console.WriteLine($"{directory.Name} - {tag.Name} = {tag.Description}");
+            //    }
+            //}
+
+            DateTime mod = File.GetLastWriteTime(dirToCheck);
+            Console.WriteLine(mod.ToString());
+
         }
     }
 }
