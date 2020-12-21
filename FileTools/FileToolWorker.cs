@@ -8,8 +8,6 @@ using MetadataExtractor.Formats.Jpeg;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
 
 namespace FileTools
 {
@@ -61,7 +59,6 @@ namespace FileTools
                     }
                     catch
                     {
-                        //Thread.Sleep(500);
                         System.IO.File.Move(fi.FullName, srcPath + "\\" + year + "\\" + month + "\\" + day + "\\" + DateTime.Now.ToString("HH-mm-ss-fff") + "-" + fi.Name);
                     }
                 }
