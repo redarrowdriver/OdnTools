@@ -73,7 +73,29 @@ namespace FileTools
 
         public void emptyDirectories(DirectoryInfo dirToCheck)
         {
-            
+            try
+            {
+                if (dirToCheck.Exists)
+                {
+                    DirectoryInfo[] dirs = dirToCheck.GetDirectories();
+
+                    foreach (DirectoryInfo di in dirs)
+                    {
+                        if (di.Exists)
+                        {
+                            if (!System.IO.Directory.EnumerateFileSystemEntries(di.FullName).Any())
+                            {
+                                deleteDir(di);
+                            }
+                            emptyDirectories(di);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                //ignore the exception
+            }
         }
 
         public string[] creationDates(string dirToCheck)
@@ -106,6 +128,15 @@ namespace FileTools
                 string shutter = shutterDate.Value.ToString("yyyy-MM-dd");
                 string[] shutterSplit = shutter.Split('-');
                 return shutterSplit;
+            }
+        }
+
+        private void deleteDir(DirectoryInfo dir)
+        {
+            if (dir.Exists)
+            {
+                Console.WriteLine("Deleting Empty Dir: " + dir.FullName);
+                System.IO.Directory.Delete(dir.FullName);
             }
         }
     }
