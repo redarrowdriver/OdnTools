@@ -29,11 +29,13 @@ namespace OdnTools
                     case "1":
                         Console.WriteLine("Enter a file path: ");
                         DirectoryInfo path = new DirectoryInfo(Console.ReadLine());
+                        fileWorker.srcPath = path;
                         fileWorker.emptyDirectories(path);
                         break;
                     case "2":
                         Console.WriteLine("Enter a file path: ");
                         DirectoryInfo path2 = new DirectoryInfo(Console.ReadLine());
+                        fileWorker.srcPath = path2;
                         fileWorker.structureImageLibrary(path2);
                         break;
                     case "3":

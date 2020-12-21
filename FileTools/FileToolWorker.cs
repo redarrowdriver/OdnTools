@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace FileTools
 {
@@ -55,11 +56,13 @@ namespace FileTools
                     }
                     try
                     {
+                        Console.WriteLine("Moving File: " + fi.FullName + " - to: " + srcPath + "\\" + year + "\\" + month + "\\" + day + "\\" + fi.Name);
                         System.IO.File.Move(fi.FullName, srcPath + "\\" + year + "\\" + month + "\\" + day + "\\" + fi.Name);
                     }
                     catch
                     {
-                        System.IO.File.Move(fi.FullName, srcPath + "\\" + year + "\\" + month + "\\" + day + "\\" + "1-" + fi.Name);
+                        //Thread.Sleep(500);
+                        System.IO.File.Move(fi.FullName, srcPath + "\\" + year + "\\" + month + "\\" + day + "\\" + DateTime.Now.ToString("HH-mm-ss-fff") + "-" + fi.Name);
                     }
                 }
             }
@@ -67,7 +70,7 @@ namespace FileTools
             dirs = dirToCheck.GetDirectories();
             foreach (DirectoryInfo di in dirs)
             {
-                emptyDirectories(di);
+                structureImageLibrary(di);
             }
         }
 
