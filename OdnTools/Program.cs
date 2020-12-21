@@ -10,15 +10,48 @@ namespace OdnTools
         {
             Console.WriteLine("ODN Consulting, LLC Tools");
             Console.WriteLine("Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
-            Console.WriteLine("Enter a file path: ");
-            DirectoryInfo path =  new DirectoryInfo(Console.ReadLine());
+            FileToolWorker fileWorker = new FileToolWorker();
 
-            FileToolWorker fileChecker = new FileToolWorker();
+            DirectoryInfo testFile = new DirectoryInfo(@"F:\temp\pictures\2008\06\15\PICT0290.jpg");
+            Console.WriteLine("Name: " + testFile.Name);
+            Console.WriteLine("FullName: " + testFile.FullName);
 
-            fileChecker.emptyDirectories(path);
+            //if (args.Length == 0)
+            //{
+            //    Console.WriteLine("");
+            //}
 
-            fileChecker.creationDates(@"F:\temp\pictures\catch\SnapChat-2063693639.jpg");
-            fileChecker.creationDates(@"F:\temp\pictures\2008\06\15\PICT0290.jpg");
+            //int loopControl = 0;
+            //while (loopControl != 3)
+            //{
+            //    Console.WriteLine("1 - Empty Directory Removal");
+            //    Console.WriteLine("2 - Image Library Structurer");
+            //    Console.WriteLine("3 - Exit");
+            //    string choice = Console.ReadLine();
+            //    switch (choice)
+            //    {
+            //        case "1":
+            //            Console.WriteLine("Enter a file path: ");
+            //            DirectoryInfo path = new DirectoryInfo(Console.ReadLine());
+            //            fileWorker.emptyDirectories(path);
+            //            break;
+            //        case "2":
+            //            Console.WriteLine("Enter a file path: ");
+            //            string path2 = Console.ReadLine();
+            //            fileWorker.creationDates(path2);
+            //            break;
+            //        case "3":
+            //            Environment.Exit(0);
+            //            break;
+            //    }
+            //}
+
+            DirectoryInfo path = new DirectoryInfo(Console.ReadLine());
+            fileWorker.srcPath = path;
+            fileWorker.emptyDirectories(path);
+
+            //fileChecker.creationDates(@"F:\temp\pictures\catch\SnapChat-2063693639.jpg");
+            //fileWorker.creationDates(@"F:\temp\pictures\2008\06\15\PICT0290.jpg");
 
         }
     }
