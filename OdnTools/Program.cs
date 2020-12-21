@@ -50,6 +50,8 @@ namespace OdnTools
             fileWorker.srcPath = path;
             fileWorker.emptyDirectories(path);
 
+            
+
             //fileChecker.creationDates(@"F:\temp\pictures\catch\SnapChat-2063693639.jpg");
             //fileWorker.creationDates(@"F:\temp\pictures\2008\06\15\PICT0290.jpg");
 

@@ -15,37 +15,7 @@ namespace FileTools
     public class FileToolWorker
     {
         public DirectoryInfo srcPath;
-        public void structureImageLibrary(DirectoryInfo srcPath)
-        {
-            FileInfo[] files = null;
-            DirectoryInfo[] dirs = null;
-
-            try
-            {
-                files = srcPath.GetFiles("*.*");
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-
-            if (files != null)
-            {
-                foreach (FileInfo fi in files)
-                {
-                    Console.WriteLine(fi.FullName + " Length: " + fi.Length + " Path: " + fi.FullName);
-                }
-            }
-
-            dirs = srcPath.GetDirectories();
-            foreach (DirectoryInfo di in dirs)
-            {
-                emptyDirectories(di);
-            }
-        }
-
-        public void emptyDirectories(DirectoryInfo dirToCheck)
+        public void structureImageLibrary(DirectoryInfo dirToCheck)
         {
             FileInfo[] files = null;
             DirectoryInfo[] dirs = null;
@@ -89,10 +59,8 @@ namespace FileTools
                     }
                     catch
                     {
-
                         System.IO.File.Move(fi.FullName, srcPath + "\\" + year + "\\" + month + "\\" + day + "\\" + "1-" + fi.Name);
                     }
-                    //Console.WriteLine(srcPath + "\\" + year + "\\" + month + "\\" + day + "\\" + fi.Name);
                 }
             }
 
@@ -101,6 +69,11 @@ namespace FileTools
             {
                 emptyDirectories(di);
             }
+        }
+
+        public void emptyDirectories(DirectoryInfo dirToCheck)
+        {
+            
         }
 
         public string[] creationDates(string dirToCheck)
